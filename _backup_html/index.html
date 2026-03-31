@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KINETIC VELOCITY - Tienda Oficial</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="home-page">
+
+  <!-- Floating Glassmorphism Navigation -->
+  <nav class="kinetic-nav">
+    <div class="nav-brand">
+      <a href="index.html" class="logo">VELOCITY<span class="highlight">_</span></a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html" class="active">CATÁLOGO</a>
+      <a href="product.html">DROP EXCLUSIVO</a>
+    </div>
+    <div class="nav-actions">
+      <a href="register.html" class="nav-btn">UNIRSE AL EQUIPO</a>
+      <a href="cart.html" class="cart-btn">CARRITO (2)</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero Banner Asimétrico -->
+    <header class="home-hero">
+      <div class="hero-bg-image">
+        <img src="https://images.unsplash.com/photo-1571216300806-6962f90a19fa?q=80&w=2072&auto=format&fit=crop" alt="Corredor sprintando">
+      </div>
+      <div class="hero-content">
+        <h1 class="display-text">ROMPE <br><span class="highlight">TUS LÍMITES</span></h1>
+        <p class="hero-subtext">Descubre la colección Kinetic High-Performance. Ingeniería pura para tu máximo nivel.</p>
+        <a href="#catalog" class="btn-primary" style="display:inline-block; margin-top: 2rem; width: auto; padding: 1rem 3rem;">VER COLECCIÓN</a>
+      </div>
+    </header>
+
+    <!-- Catálogo de Productos (Layout Staggered) -->
+    <section id="catalog" class="catalog-section">
+      <h2 class="section-title">EQUIPAMIENTO TÉCNICO</h2>
+      
+      <div class="product-grid">
+        <!-- Carta 1: Grande Transgresor -->
+        <article class="product-card featured">
+          <a href="product.html">
+            <div class="card-image-wrapper">
+              <span class="badge tech">AERODINÁMICO</span>
+              <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?q=80&w=1974&auto=format&fit=crop" alt="Zapatillas Velocity PRO">
+            </div>
+            <div class="card-info">
+              <h3>Velocity PRO Elite</h3>
+              <p class="price">€180.00</p>
+            </div>
+          </a>
+        </article>
+
+        <!-- Carta 2: Normal -->
+        <article class="product-card">
+          <a href="product.html">
+            <div class="card-image-wrapper">
+              <span class="badge new">NUEVO DROP</span>
+              <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1920&auto=format&fit=crop" alt="Chaqueta Impermeable">
+            </div>
+            <div class="card-info">
+              <h3>Chaqueta Stealth Shield</h3>
+              <p class="price">€145.00</p>
+            </div>
+          </a>
+        </article>
+        
+        <!-- Carta 3: Normal -->
+        <article class="product-card">
+          <a href="product.html">
+            <div class="card-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=1972&auto=format&fit=crop" alt="Top Deportivo">
+            </div>
+            <div class="card-info">
+              <h3>Top Kinetic Compresión</h3>
+              <p class="price">€45.00</p>
+            </div>
+          </a>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>THE VELOCITY LENS © 2026. High-Performance Editorial.</p>
+  </footer>
+
+</body>
+</html>

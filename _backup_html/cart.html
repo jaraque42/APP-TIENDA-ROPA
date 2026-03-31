@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito Operativo - The Velocity Lens</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="cart-page">
+
+  <!-- Floating Glassmorphism Navigation -->
+  <nav class="kinetic-nav">
+    <div class="nav-brand">
+      <a href="index.html" class="logo">VELOCITY<span class="highlight">_</span></a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">CATÁLOGO</a>
+      <a href="product.html">DROP EXCLUSIVO</a>
+    </div>
+    <div class="nav-actions">
+      <a href="register.html" class="nav-btn">CUENTA</a>
+      <a href="cart.html" class="cart-btn active">CARRITO (2)</a>
+    </div>
+  </nav>
+
+  <main class="cart-container">
+    
+    <header class="cart-header">
+      <h1 class="display-text">REVISIÓN DE <span class="highlight">EQUIPAMIENTO</span></h1>
+    </header>
+
+    <div class="cart-content">
+      
+      <!-- Lista de Ítems -->
+      <section class="cart-items">
+        <article class="cart-line-item">
+          <div class="cart-img">
+            <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?q=80&w=200&auto=format&fit=crop" alt="Velocity PRO Elite">
+          </div>
+          <div class="cart-item-details">
+            <h2>Velocity PRO Elite <span class="badge tech" style="font-size:0.6rem; padding:0.15rem 0.5rem; margin-left:0.5rem;">TALLA 40</span></h2>
+            <p class="sku">REF: VP-40-BL</p>
+            <div class="quantity-control">
+              <button class="ghost-btn">-</button>
+              <span>1</span>
+              <button class="ghost-btn">+</button>
+            </div>
+          </div>
+          <div class="cart-item-price">
+            <p>€180.00</p>
+          </div>
+        </article>
+
+        <article class="cart-line-item">
+          <div class="cart-img">
+            <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=200&auto=format&fit=crop" alt="Top Kinetic Compresión">
+          </div>
+          <div class="cart-item-details">
+            <h2>Top Kinetic Compresión <span class="badge" style="font-size:0.6rem; padding:0.15rem 0.5rem; margin-left:0.5rem; background:var(--surface-container-high); color:#fff">TALLA M</span></h2>
+            <p class="sku">REF: TK-M-BLK</p>
+            <div class="quantity-control">
+              <button class="ghost-btn">-</button>
+              <span>1</span>
+              <button class="ghost-btn">+</button>
+            </div>
+          </div>
+          <div class="cart-item-price">
+            <p>€45.00</p>
+          </div>
+        </article>
+      </section>
+
+      <!-- Resumen del Pedido (Checkout) -->
+      <aside class="cart-summary">
+        <h3>DESGLOSE TÁCTICO</h3>
+        
+        <div class="summary-line">
+          <span>Subtotal Equipamiento</span>
+          <span>€225.00</span>
+        </div>
+        <div class="summary-line">
+          <span>Logística Express</span>
+          <span>€0.00</span>
+        </div>
+        <div class="summary-line total-line">
+          <span>TOTAL</span>
+          <span class="highlight">€225.00</span>
+        </div>
+
+        <button class="btn-primary checkout-btn" onclick="alert('Iniciando pasarela de pago segura de alta velocidad.')">INICIAR SECUENCIA DE PAGO</button>
+        
+        <p class="security-note">
+          Transacción cifrada militarmente. Devoluciones garantizadas por 30 días si el producto no mejora tus tiempos.
+        </p>
+      </aside>
+
+    </div>
+
+  </main>
+
+</body>
+</html>

@@ -1,65 +1,52 @@
-import Image from "next/image";
+"use client";
+import Link from 'next/link';
+import { PRODUCTS } from "@/data/products.js";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main>
+      {/* Hero Banner Asimétrico */}
+      <header className="home-hero">
+        <div className="hero-bg-image">
+          <img src="https://images.unsplash.com/photo-1571216300806-6962f90a19fa?q=80&w=2072&auto=format&fit=crop" alt="Corredor sprintando" />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="hero-content">
+          <h1 className="display-text">ROMPE <br/><span className="highlight">TUS LÍMITES</span></h1>
+          <p className="hero-subtext">Descubre la colección AERDNA High-Performance. Ingeniería pura para tu máximo nivel.</p>
+          <Link href="#catalog" className="btn-primary" style={{ display: 'inline-block', marginTop: '2rem', width: 'auto', padding: '1rem 3rem' }}>
+            VER COLECCIÓN
+          </Link>
         </div>
-      </main>
-    </div>
+      </header>
+
+      {/* Catálogo de Productos (Layout Staggered) */}
+      <section id="catalog" className="catalog-section">
+        <h2 className="section-title">EQUIPAMIENTO TÉCNICO</h2>
+        
+        <div className="product-grid">
+          {PRODUCTS.map((product) => (
+            <article key={product.id} className={`product-card ${product.featured ? 'featured' : ''}`}>
+              <Link href={`/product/${product.id}`}>
+                <div className="card-image-wrapper">
+                  {product.category && <span className={`badge ${product.category === 'NUEVO DROP' ? 'new' : 'tech'}`}>{product.category}</span>}
+                  <img src={product.image} alt={product.name} />
+                  <div className="card-overlay">
+                    <span className="view-details">VER DETALLES</span>
+                  </div>
+                </div>
+                <div className="card-info">
+                  <h3>{product.name}</h3>
+                  <p className="price">€{product.price.toFixed(2)}</p>
+                </div>
+              </Link>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <footer className="site-footer">
+        <p>THE AERDNA LENS © 2026. High-Performance Editorial.</p>
+      </footer>
+    </main>
   );
 }
