@@ -37,9 +37,26 @@ export async function GET() {
       )
     `;
 
+    // 4. Levantar tabla CART_ITEMS (carrito por usuario)
+    await sql`
+      CREATE TABLE IF NOT EXISTS cart_items (
+        id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+        user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+        product_id VARCHAR(255) NOT NULL,
+        product_name VARCHAR(255) NOT NULL,
+        product_image VARCHAR(500) NOT NULL,
+        price NUMERIC(10, 2) NOT NULL,
+        size VARCHAR(50) NOT NULL,
+        quantity INTEGER NOT NULL DEFAULT 1,
+        cart_key VARCHAR(500) NOT NULL,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+        UNIQUE(user_id, cart_key)
+      )
+    `;
+
     return NextResponse.json({ 
       success: true, 
-      message: 'Base de datos Neon configurada correctamente: Tablas Users y Products listas.' 
+      message: 'Base de datos Neon configurada: Tablas Users, Products y Cart_Items listas.' 
     });
 
   } catch (error) {
