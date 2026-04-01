@@ -54,9 +54,41 @@ export async function GET() {
       )
     `;
 
+    // 5. Levantar tabla ORDERS (pedidos)
+    await sql`
+      CREATE TABLE IF NOT EXISTS orders (
+        id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+        user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+        total NUMERIC(10, 2) NOT NULL,
+        status VARCHAR(50) DEFAULT 'CONFIRMADO',
+        payment_method VARCHAR(100) DEFAULT 'TARJETA FICTICIA',
+        shipping_name VARCHAR(255),
+        shipping_address TEXT,
+        shipping_city VARCHAR(255),
+        shipping_zip VARCHAR(20),
+        card_last_four VARCHAR(4),
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+      )
+    `;
+
+    // 6. Levantar tabla ORDER_ITEMS (productos de un pedido)
+    await sql`
+      CREATE TABLE IF NOT EXISTS order_items (
+        id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+        order_id UUID NOT NULL REFERENCES orders(id) ON DELETE CASCADE,
+        product_id VARCHAR(255) NOT NULL,
+        product_name VARCHAR(255) NOT NULL,
+        product_image VARCHAR(500) NOT NULL,
+        price NUMERIC(10, 2) NOT NULL,
+        size VARCHAR(50) NOT NULL,
+        quantity INTEGER NOT NULL DEFAULT 1,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+      )
+    `;
+
     return NextResponse.json({ 
       success: true, 
-      message: 'Base de datos Neon configurada: Tablas Users, Products y Cart_Items listas.' 
+      message: 'Base de datos Neon configurada: Tablas Users, Products, Cart_Items, Orders y Order_Items listas.' 
     });
 
   } catch (error) {

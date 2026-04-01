@@ -70,7 +70,7 @@ export default function Cart() {
               <span className="highlight">€{cartTotal.toFixed(2)}</span>
             </div>
 
-            <button className="btn-primary checkout-btn" onClick={() => alert('Iniciando pasarela de pago segura de alta velocidad.')}>INICIAR SECUENCIA DE PAGO</button>
+            <Link href="/checkout" className="btn-primary checkout-btn" style={{display:'block', textAlign:'center', textDecoration:'none'}}>INICIAR SECUENCIA DE PAGO</Link>
             
             <p className="security-note">
               Transacción cifrada militarmente. Devoluciones garantizadas por 30 días si el producto no mejora tus tiempos.
