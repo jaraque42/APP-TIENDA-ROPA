@@ -10,19 +10,23 @@ export default function Register() {
   const [formData, setFormData] = useState({ name: '', email: '', password: '' });
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    setLoading(true);
     
     try {
-      register(formData);
+      await register(formData);
       setSuccess(true);
       setTimeout(() => {
         router.push('/login');
       }, 2000);
     } catch (err) {
       setError(err.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -98,8 +102,8 @@ export default function Register() {
                 />
               </div>
 
-              <button type="submit" className="btn-primary" style={{width: '100%', marginTop: '1rem'}}>
-                CONFIRMAR INGRESA
+              <button type="submit" className="btn-primary" style={{width: '100%', marginTop: '1rem'}} disabled={loading}>
+                {loading ? 'PROCESANDO...' : 'CONFIRMAR INGRESO'}
               </button>
             </form>
           )}

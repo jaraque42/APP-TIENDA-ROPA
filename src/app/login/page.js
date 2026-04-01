@@ -9,16 +9,20 @@ export default function Login() {
   const router = useRouter();
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    setLoading(true);
     
     try {
-      login(formData.email, formData.password);
+      await login(formData.email, formData.password);
       router.push('/');
     } catch (err) {
       setError(err.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -76,8 +80,8 @@ export default function Login() {
               />
             </div>
 
-            <button type="submit" className="btn-primary" style={{width: '100%', marginTop: '1rem'}}>
-              ACCEDER A LA BASE
+            <button type="submit" className="btn-primary" style={{width: '100%', marginTop: '1rem'}} disabled={loading}>
+              {loading ? 'VERIFICANDO...' : 'ACCEDER A LA BASE'}
             </button>
           </form>
 

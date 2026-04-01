@@ -3,8 +3,8 @@
  * AERDNA AUTHENTICATION ENGINE (SERVER ACTIONS)
  * 📂 Ubicación: src/app/actions/auth.js
  * 
- * Este archivo contiene la lógica de negocio que se ejecuta en el SEVIDOR.
- * Es aquí donde conectamos la UI con la base de datos real en Vercel.
+ * Este archivo contiene la lógica de negocio que se ejecuta en el SERVIDOR.
+ * Conectado a Neon Database en Vercel.
  */
 import { userDb } from "@/lib/user-db.js";
 import { cookies } from "next/headers";
@@ -16,49 +16,49 @@ import { cookies } from "next/headers";
 export async function registerAction(formData) {
   const { name, email, password } = formData;
 
-  // 1. Simulación de retardo (para UX de red)
-  await new Promise(resolve => setTimeout(resolve, 500));
-
-  // 2. Validación técnica
+  // 1. Validación técnica
   const existingUser = await userDb.findByEmail(email);
   if (existingUser) {
     return { success: false, error: "El email ya está registrado en nuestra base." };
   }
 
-  // 3. Creación en la "Base de Datos"
+  // 2. Creación en Neon Database
   const newUser = await userDb.create({ name, email, password });
 
+  // 3. Datos seguros para la cookie (sin contraseña)
+  const safeUser = { id: newUser.id, name: newUser.name, email: newUser.email, role: newUser.role };
+
   // 4. Sesión automática tras registro
-  (await cookies()).set("aerdna_token", JSON.stringify(newUser), {
-    httpOnly: true,
+  (await cookies()).set("aerdna_token", JSON.stringify(safeUser), {
+    httpOnly: false, // Para que el cliente pueda leerla y restaurar sesión
     secure: process.env.NODE_ENV === "production",
-    maxAge: 60 * 60 * 24 * 7, // 7 días de acceso
+    maxAge: 60 * 60 * 24 * 7, // 7 días
     path: "/",
   });
 
-  return { success: true, user: newUser };
+  return { success: true, user: safeUser };
 }
 
 /**
  * Inicia sesión operativa de un atleta.
  */
 export async function loginAction(email, password) {
-  // 1. Simulación de retardo
-  await new Promise(resolve => setTimeout(resolve, 500));
-
-  // 2. Consulta a la "Base de Datos"
+  // 1. Consulta a Neon Database
   const user = await userDb.findByEmail(email);
 
   if (user && user.password === password) {
-    // 3. Crear Cookie de Sesión Inteligente
-    (await cookies()).set("aerdna_token", JSON.stringify(user), {
-      httpOnly: true,
+    // 2. Datos seguros para la cookie (sin contraseña)
+    const safeUser = { id: user.id, name: user.name, email: user.email, role: user.role };
+
+    // 3. Crear Cookie de Sesión
+    (await cookies()).set("aerdna_token", JSON.stringify(safeUser), {
+      httpOnly: false,
       secure: process.env.NODE_ENV === "production",
       maxAge: 60 * 60 * 24 * 7,
       path: "/",
     });
 
-    return { success: true, user };
+    return { success: true, user: safeUser };
   }
 
   return { success: false, error: "Credenciales inválidas. Acceso denegado." };
