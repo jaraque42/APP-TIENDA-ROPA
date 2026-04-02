@@ -80,6 +80,38 @@ export const PRODUCTS = [
       { label: 'Forro', value: 'Silk-Touch' }
     ]
   },
+  {
+    id: 'aerdna-windrunner-elite',
+    name: 'AERDNA Windrunner Elite',
+    price: 125,
+    image: '/images/products/aerdna-windrunner.png',
+    category: 'running',
+    subCategory: 'textil',
+    featured: false,
+    description: 'Compite contra los elementos. Cortavientos translúcido ultraligero que bloquea el viento y la lluvia ligera sin añadir peso extra. Ajuste aerodinámico.',
+    sizes: ['S', 'M', 'L', 'XL'],
+    specs: [
+      { label: 'Peso', value: '85g' },
+      { label: 'Visibilidad', value: 'Detalles reflectantes' },
+      { label: 'Transpirabilidad', value: 'Alta' }
+    ]
+  },
+  {
+    id: 'aero-fit-tights',
+    name: 'Aero-Fit Running Tights',
+    price: 65,
+    image: '/images/products/aero-fit-tights.png',
+    category: 'running',
+    subCategory: 'textil',
+    featured: false,
+    description: 'Mallas de compresión avanzadas para carreras de larga distancia. Tejido elástico en 4 direcciones que proporciona soporte muscular focalizado y reduce la fatiga.',
+    sizes: ['S', 'M', 'L'],
+    specs: [
+      { label: 'Compresión', value: 'Graduada' },
+      { label: 'Bolsillos', value: '2 laterales ocultos' },
+      { label: 'Detalles', value: 'Costuras planas' }
+    ]
+  },
 
   // GYM / TRAINING
   {
@@ -160,6 +192,38 @@ export const PRODUCTS = [
       { label: 'Cintura', value: 'High-Rise Sculpt' },
       { label: 'Tejido', value: 'Elastic Armor' },
       { label: 'Prueba', value: 'Squat Proof' }
+    ]
+  },
+  {
+    id: 'heavyweight-oversized-tee',
+    name: 'Heavyweight Oversized Tee',
+    price: 40,
+    image: '/images/products/heavyweight-tee.png',
+    category: 'gym',
+    subCategory: 'textil',
+    featured: false,
+    description: 'Flow urbano para el gimnasio. Camiseta de algodón técnico con corte oversize. Tejido grueso pero transpirable, ideal para el entrenamiento de fuerza o el calentamiento.',
+    sizes: ['M', 'L', 'XL', 'XXL'],
+    specs: [
+      { label: 'Corte', value: 'Oversize Boxy Fit' },
+      { label: 'Material', value: 'Algodón Heavyweight Tech' },
+      { label: 'Cuello', value: 'Reforzado' }
+    ]
+  },
+  {
+    id: 'aerdna-tactical-duffle',
+    name: 'AERDNA Tactical Duffle',
+    price: 95,
+    image: '/images/products/tactical-duffle.png',
+    category: 'gym',
+    subCategory: 'accesorios',
+    featured: false,
+    description: 'Tu taquilla portátil. Bolsa de deporte resistente con compartimentos separados para zapatillas, ropa húmeda y un organizador seguro para tus dispositivos de entrenamiento.',
+    sizes: ['Única'],
+    specs: [
+      { label: 'Capacidad', value: '45L' },
+      { label: 'Tejido', value: 'Cordura Resistente al Agua' },
+      { label: 'Correas', value: 'Acolchadas multifunción' }
     ]
   },
 
