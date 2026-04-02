@@ -4,6 +4,7 @@ import { AuthProvider } from "@/context/AuthContext.js";
 import { CartProvider } from "@/context/CartContext.js";
 import Navbar from "@/components/Navbar.js";
 import CookieBanner from "@/components/CookieBanner.js";
+import TestNotice from "@/components/TestNotice.js";
 
 const lexend = Lexend({ subsets: ["latin"], variable: '--font-label' });
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: '--font-body' });
@@ -23,6 +24,7 @@ export default function RootLayout({ children }) {
             <Navbar />
             {children}
             <CookieBanner />
+            <TestNotice />
           </CartProvider>
         </AuthProvider>
       </body>

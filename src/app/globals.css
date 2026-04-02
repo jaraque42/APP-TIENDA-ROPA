@@ -1566,6 +1566,114 @@ a { text-decoration: none; color: inherit; transition: color 0.15s; }
   }
 }
 
+/* ================== TEST NOTICE ================== */
+.test-notice-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.test-notice-card {
+  max-width: 440px;
+  background: var(--surface-container);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+}
+
+.test-notice-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.test-notice-icon {
+  color: var(--primary-container);
+  width: 64px;
+  height: 64px;
+  background: rgba(207, 252, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  animation: pulse-limited 2s infinite;
+}
+
+.test-notice-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.25rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+.test-notice-body {
+  color: var(--on-surface-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+
+.test-notice-highlight {
+  margin-top: 1rem;
+  font-weight: 700;
+  color: var(--primary-container);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05rem;
+}
+
+.test-notice-btn {
+  width: 100%;
+  background: #fff;
+  color: #000;
+  border: none;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border-radius: 0.25rem;
+}
+
+.test-notice-btn:hover {
+  background: var(--primary-container);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(207, 252, 0, 0.4);
+}
+
+.fade-in { animation: fadeInScale 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; }
+.fade-out { animation: fadeOutScale 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; }
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.9) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes fadeOutScale {
+  from { opacity: 1; transform: scale(1) translateY(0); }
+  to { opacity: 0; transform: scale(0.95) translateY(10px); }
+}
+
+/* Legal footer mobile */
+@media (max-width: 600px) {
+  .test-notice-card {
+    padding: 1.5rem;
+  }
+}
+
 /* ================== LEGAL / POLICY PAGE ================== */
 .legal-content {
   color: var(--on-surface-muted);
