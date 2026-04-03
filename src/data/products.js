@@ -292,6 +292,57 @@ export const PRODUCTS = [
       { label: 'Cámara', value: 'Butilo de alta retención' }
     ]
   },
+  {
+    id: 'pro-tech-shin-guards',
+    name: 'AERDNA Pro-Tech Shin Guards',
+    price: 45,
+    image: '/images/products/shin-guards.png',
+    hasCssLogo: false,
+    category: 'futbol',
+    subCategory: 'accesorios',
+    featured: false,
+    description: 'Armadura de élite. Espinilleras de fibra de carbono ultra-ligeras con un perfil asimétrico anatómico. Protección máxima sin sacrificar la velocidad ni el toque de balón.',
+    sizes: ['S', 'M', 'L'],
+    specs: [
+      { label: 'Material', value: 'Carbon Fiber 3K' },
+      { label: 'Ajuste', value: 'Manga de compresión incluida' },
+      { label: 'Peso', value: '45g' }
+    ]
+  },
+  {
+    id: 'elite-grip-socks',
+    name: 'AERDNA Elite Grip Socks',
+    price: 25,
+    image: '/images/products/elite-grip-socks.png',
+    hasCssLogo: false,
+    category: 'futbol',
+    subCategory: 'accesorios',
+    featured: false,
+    description: 'Tracción total dentro de la bota. Medias técnicas con puntos de silicona reactivos que eliminan el desplazamiento del pie, mejorando la explosividad en el campo.',
+    sizes: ['M (38-42)', 'L (43-46)'],
+    specs: [
+      { label: 'Grip', value: 'Células de silicona 3D' },
+      { label: 'Protección', value: 'Talón acolchado' },
+      { label: 'Anti-Ampollas', value: 'Fricción cero' }
+    ]
+  },
+  {
+    id: 'pitch-rain-jacket',
+    name: 'AERDNA Pitch Rain Jacket',
+    price: 85,
+    image: '/images/products/pitch-rain-jacket.png',
+    hasCssLogo: false,
+    category: 'futbol',
+    subCategory: 'textil',
+    featured: false,
+    description: 'Entrena duro, llueva o no. Chubasquero hidrófugo diseñado específicamente para los movimientos de fútbol, con ventilación trasera y puños sellados.',
+    sizes: ['S', 'M', 'L', 'XL'],
+    specs: [
+      { label: 'Tejido', value: 'Water-Shield PRO' },
+      { label: 'Ajuste', value: 'Slim-Fit' },
+      { label: 'Capucha', value: 'Plegable integrada' }
+    ]
+  },
 
   // DROP EXCLUSIVO
   {

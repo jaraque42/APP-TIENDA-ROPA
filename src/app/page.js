@@ -1,5 +1,6 @@
 "use client";
 import Link from 'next/link';
+import ProductImage from '@/components/ProductImage';
 import { PRODUCTS } from "@/data/products.js";
 
 export default function Home() {
@@ -29,7 +30,7 @@ export default function Home() {
               <Link href={`/product/${product.id}`}>
                 <div className="card-image-wrapper">
                   {product.category && <span className={`badge ${product.category === 'NUEVO DROP' ? 'new' : 'tech'}`}>{product.category}</span>}
-                  <img src={product.image} alt={product.name} />
+                  <ProductImage product={product} />
                   <div className="card-overlay">
                     <span className="view-details">VER DETALLES</span>
                   </div>

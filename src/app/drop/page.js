@@ -1,5 +1,6 @@
 "use client";
 import Link from 'next/link';
+import ProductImage from '@/components/ProductImage';
 import { PRODUCTS } from "@/data/products.js";
 
 export default function DropPage() {
@@ -23,7 +24,7 @@ export default function DropPage() {
               <Link href={`/product/${product.id}`}>
                 <div className="card-image-wrapper">
                   <span className="badge limited">LIMITED EDITION</span>
-                  <img src={product.image} alt={product.name} />
+                  <ProductImage product={product} />
                   <div className="card-overlay highlight-overlay">
                     <span className="view-details">RECLAMAR ARTÍCULO</span>
                   </div>

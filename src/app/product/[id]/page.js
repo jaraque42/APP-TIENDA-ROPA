@@ -3,6 +3,7 @@ import React, { useState, use } from "react";
 import { useCart } from "@/context/CartContext.js";
 import { getProductById } from "@/data/products.js";
 import Link from 'next/link';
+import ProductImage from '@/components/ProductImage';
 
 export default function ProductDetail({ params }) {
   const { id } = use(params);
@@ -23,7 +24,7 @@ export default function ProductDetail({ params }) {
     <main className="product-container">
       {/* Lado Izquierdo: Imagen expansiva del artículo */}
       <section className="product-image-section">
-        <img src={product.image} alt={product.name} />
+        <ProductImage product={product} />
       </section>
 
       {/* Lado Derecho: Detalles Técnicos */}

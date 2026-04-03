@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import Link from 'next/link';
+import ProductImage from '@/components/ProductImage';
 import { PRODUCTS } from "@/data/products.js";
 
 export default function GymPage() {
@@ -13,7 +14,7 @@ export default function GymPage() {
           <Link href={`/product/${product.id}`}>
             <div className="card-image-wrapper">
               <span className="badge tech">{product.subCategory?.toUpperCase()}</span>
-              <img src={product.image} alt={product.name} />
+              <ProductImage product={product} />
               <div className="card-overlay">
                 <span className="view-details">VER DETALLES</span>
               </div>
