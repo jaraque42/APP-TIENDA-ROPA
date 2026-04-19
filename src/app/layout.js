@@ -13,6 +13,10 @@ const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], weight: ["600", "700"],
 export const metadata = {
   title: "AERDNA - Tienda Oficial",
   description: "AERDNA High-Performance Editorial. Innovación y estilo.",
+  icons: {
+    icon: "/icon.svg",
+    apple: "/icon.svg",
+  },
 };
 
 export default function RootLayout({ children }) {

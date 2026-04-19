@@ -1,4 +1,5 @@
-export default function AerdnaLogo({ className = "", style = {} }) {
+export default function AerdnaLogo({ className = "", style = {}, inverted = false }) {
+  const mainColor = inverted ? "#0e0e0e" : "white";
   return (
     <svg
       className={className}
@@ -11,14 +12,14 @@ export default function AerdnaLogo({ className = "", style = {} }) {
       {/* Left leg of A mark */}
       <rect
         x="292" y="18" width="18" height="125" rx="3"
-        fill="white"
+        fill={mainColor}
         transform="rotate(40, 301, 80.5)"
       />
 
       {/* Right leg of A mark */}
       <rect
         x="370" y="18" width="18" height="125" rx="3"
-        fill="white"
+        fill={mainColor}
         transform="rotate(-40, 379, 80.5)"
       />
 
@@ -39,7 +40,7 @@ export default function AerdnaLogo({ className = "", style = {} }) {
         fontSize="64"
         fontWeight="800"
         letterSpacing="14"
-        fill="white"
+        fill={mainColor}
         style={{ fontFamily: "var(--font-display)" }}
       >
         AERDNA
