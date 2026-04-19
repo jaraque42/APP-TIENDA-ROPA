@@ -1,5 +1,5 @@
 import React from 'react';
-import AerdnaLogo from '@/components/AerdnaLogo';
+
 
 export default function ProductImage({ product, className = "" }) {
   return (
@@ -20,7 +20,7 @@ export default function ProductImage({ product, className = "" }) {
           transform: 'translate(-50%, -50%) rotate(-5deg)', /* Center and slight tilt */
           pointerEvents: 'none' /* ensure it doesn't block clicks */
         }}>
-          <AerdnaLogo />
+          <img src="/logo-dark.png" alt="Logo" style={{ width: '100%', height: 'auto' }} />
         </div>
       )}
     </div>
