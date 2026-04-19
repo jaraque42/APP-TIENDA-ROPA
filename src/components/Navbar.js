@@ -1,7 +1,7 @@
 "use client";
 import Link from 'next/link';
 import { useState } from 'react';
-import AerdnaLogo from './AerdnaLogo.jsx';
+
 import { useCart } from "@/context/CartContext.js";
 import { useAuth } from "@/context/AuthContext.js";
 
@@ -17,7 +17,12 @@ export default function Navbar() {
       <nav className="kinetic-nav">
         <div className="nav-brand">
           <Link href="/" className="logo-link" onClick={closeMenu}>
-            <AerdnaLogo className="w-32 h-auto" />
+            <img 
+              src="/logo-dark.png" 
+              alt="AERDNA Logo" 
+              className="h-12 w-auto object-contain"
+              style={{ maxHeight: '60px' }}
+            />
           </Link>
         </div>
 
