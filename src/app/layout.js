@@ -14,8 +14,8 @@ export const metadata = {
   title: "AERDNA - Tienda Oficial",
   description: "AERDNA High-Performance Editorial. Innovación y estilo.",
   icons: {
-    icon: "/icon.svg",
-    apple: "/icon.svg",
+    icon: "/favicon.png",
+    apple: "/favicon.png",
   },
 };
 
